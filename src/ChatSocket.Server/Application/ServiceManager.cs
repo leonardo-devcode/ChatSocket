@@ -103,7 +103,7 @@ namespace ChatSocket.Server.Application
 
                 if (room == null)
                 {
-                    user.SendMessage("Essa sala não existe");
+                    user.SendMessage("Essa sala nao existe");
                     return;
                 }
 
@@ -147,7 +147,7 @@ namespace ChatSocket.Server.Application
             }
             catch (CommandNotFoundException)
             {
-                user.SendMessage("*** Esse comando não existe, envia /ajuda para listar os comandos disponiveis");
+                user.SendMessage("*** Esse comando nao existe, envia /ajuda para listar os comandos disponiveis");
             }
         }
 

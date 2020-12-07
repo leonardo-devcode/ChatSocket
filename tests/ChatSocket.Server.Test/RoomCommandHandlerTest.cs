@@ -93,6 +93,20 @@ namespace ChatSocket.Server.Test
         }
 
         [Fact]
+        public void ChangeRoom_WhenRoomNameNotExist_ThenReceiveMessageWarning()
+        {
+            // Arrange
+            var user = new Mock<User>();
+            _serviceManager.AddUser(user.Object);
+
+            // Act
+            _serviceManager.handleMessage(user.Object, "/mudar-sala teste");
+
+            // Assert
+            user.Verify(x => x.SendMessage("Essa sala nao existe"), Times.Once);
+        }
+
+        [Fact]
         public void ChangeRoom_WhenChangeUserRoom_ThenAnotherRoonNotReceiveMessage()
         {
             // Arrange
